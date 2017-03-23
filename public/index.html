@@ -6,28 +6,68 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/display-tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
+
+
   </head>
 
   <body>
 
     <!-- Top nav bar (fixed) -->
     <nav id="nav-bar">
-      <img class="logo" src="/images/bird.png" width="80px" height="80px">
+      <img class="logo" src="/images/bird.png">
       <span class="header">Tweeter</span>
+      <button class=""><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Compose</button>
     </nav>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+    <p class="error">
+    </p>
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form method="POST" action="/tweets/" enctype="application/x-www-form-urlencoded">
+          <textarea name="text" spellcheck="true" placeholder="What are you humming about?"></textarea>
+          <input type="submit" value="Tweet"/>
+          <span class="counter">140</span>
+        </form>
+      </section>
+      <br>
+      <div class="tweets-container">
+        <!-- <article class="tweet">
+          <header>
+            <img src="/images/profile-pic.jpg"/>
+            <h3> Abhi Muthukumar</h3>
+            <span> @Abhi91 </span>
+          </header>
+          <p>
+            My First Tweet .. :-)
+          </p>
+          <footer>
+            <span> 10 days ago </span>
+            <div class="footer-icons">
+              <i class="fa fa-heart" aria-hidden="true"></i>
+              <i class="fa fa-retweet" aria-hidden="true"></i>
+              <i class="fa fa-flag" aria-hidden="true"></i>
+            </div>
+          </footer>
+        </article> -->
+      </div>
     </main>
-
+    <!-- App JS -->
+    <script type="text/javascript" src="/scripts/event-handlers.js"></script>
   </body>
 </html>

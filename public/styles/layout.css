@@ -15,6 +15,7 @@ html {
  */
 
 body {
+  font-family: 'Roboto Condensed', sans-serif;
   margin: 0;
   color: #244751;
   background-color: #eee;
@@ -23,3 +24,31 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+.container {
+  margin: auto;
+  width: 450px;
+  height: 100%;
+  background-color: white;
+  padding:70px 30px;
+ }
+
+.tweet{
+  background-color: #fff;
+  border-style: solid;
+  border-width: thin;
+  border-color: #ccc;
+  border-radius: 10px;
+  opacity: 0.7
+}
+
+.error{
+  height: 2em;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  padding: 5px 10px 5px 10px;
+  /*display: none;*/
+  opacity: 0;
+}

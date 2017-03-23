@@ -1,0 +1,31 @@
+.new-tweet{
+  background-color: #eee;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 10px;
+  /*visibility: hidden;*/
+  display:none;
+}
+
+.new-tweet h2{
+  border-bottom: 1px groove black;
+  margin-top: auto;
+}
+
+.new-tweet textarea{
+  width: 100%;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.new-tweet button{
+  margin-top: 5px;
+  padding: 20px;
+}
+
+.new-tweet span{
+  font-style: italic;
+  float: right;
+
+}
+

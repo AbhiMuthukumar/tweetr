@@ -3,31 +3,28 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
- function findDifference(date){
+ function findDifference(date) {
   let difference_milliseconds = new Date(Date.now()) - new Date(date);
   let difference_seconds = difference_milliseconds / 1000;
   let difference_minutes = difference_seconds / 60;
   let difference_hours;
   let difference_days;
   let difference_years;
-  if (difference_minutes < 1)
-    return `few seconds ago`;
-  else
-    difference_hours = difference_minutes / 60;
-  if (difference_hours < 1)
-    return (Math.floor(difference_minutes) === 1) ? '1 minute ago' : `${Math.floor(difference_minutes)} minutes ago`;
-  else
-    difference_days = difference_hours / 24;
-  if (difference_days < 1)
-    return Math.floor(difference_hours) === 1 ? '1 hour ago' : `${Math.floor(difference_hours)} hours ago`;
-  else
-    difference_years = difference_days / 365;
-  if (difference_years < 1)
-    return Math.floor(difference_days) === 1 ? '1 day ago' : `${Math.floor(difference_days)} days ago`;
-  else
-    return Math.floor(difference_years) === 1 ? '1 year ago' : `${Math.floor(difference_years)} year ago`;
+  if (difference_minutes < 1) return `few seconds ago`;
 
-  return 0;
+  difference_hours = difference_minutes / 60;
+
+  if (difference_hours < 1) return (Math.floor(difference_minutes) === 1) ? '1 minute ago' : `${Math.floor(difference_minutes)} minutes ago`;
+
+  difference_days = difference_hours / 24;
+
+  if (difference_days < 1) return Math.floor(difference_hours) === 1 ? '1 hour ago' : `${Math.floor(difference_hours)} hours ago`;
+
+  difference_years = difference_days / 365;
+
+  if (difference_years < 1) return Math.floor(difference_days) === 1 ? '1 day ago' : `${Math.floor(difference_days)} days ago`;
+
+  return Math.floor(difference_years) === 1 ? '1 year ago' : `${Math.floor(difference_years)} year ago`;
 }
 
 $(document).ready(function(){
@@ -43,9 +40,9 @@ $(document).ready(function(){
     } else {
       $.ajax({
         type: "POST",
-        url:`/tweets/`,
+        url: `/tweets`,
         data: $(this).serialize(),
-        success: updateTweets
+        success: updateTweets.bind(this)
       });
       $(this).find("textarea").val("");
     }
@@ -63,7 +60,7 @@ $(document).ready(function(){
     $.ajax({
       type:"GET",
       url:'/tweets',
-      success:(response)=>{
+      success: (response) => {
         const tweets = [];
         tweets.push(response[response.length-1]);
         renderTweets(tweets);

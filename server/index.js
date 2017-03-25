@@ -1,5 +1,7 @@
 "use strict";
 
+require('dotenv').config();
+
 // Basic express setup:
 
 const PORT          = 8080;
@@ -12,8 +14,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // The in-memory database of tweets. It's a basic object with an array in it.
-const Mongo_URI = "mongodb://localhost:27017/tweeter";
+//const Mongo_URI = "mongodb://localhost:27017/tweeter";
+const MONGODB_URI = process.env.MONGODB_URI;
 const {MongoClient} = require("mongodb");
+//console.log(MONGODB_URI);
 //const db = require("./lib/in-memory-db");
 
 // The `data-helpers` module provides an interface to the database of tweets.
@@ -25,9 +29,9 @@ const {MongoClient} = require("mongodb");
 // require it and pass the `db` parameter immediately:
 
 
-MongoClient.connect(Mongo_URI, (err,db) => {
+MongoClient.connect(MONGODB_URI, (err,db) => {
   if (err){
-    console.error(`Connection failed to DB : ${Mongo_URI}`);
+    console.error(`Connection failed to DB : ${MONGODB_URI}`);
     throw err;
   }
 
